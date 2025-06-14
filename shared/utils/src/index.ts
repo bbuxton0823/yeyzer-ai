@@ -177,13 +177,22 @@ export const createErrorResponse = (
  * Create a standardized success response
  */
 export const createSuccessResponse = <T>(data: T, message = 'Success', requestId?: string): ApiResponse<T> => {
-  return {
+  // Build base response first
+  const base = {
     success: true,
     message,
     timestamp: new Date().toISOString(),
     requestId,
-    data,
   };
+
+  // Only attach `data` if it is not `undefined` – keeps ApiResponse<T> contract
+  if (data !== undefined) {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    (base as any).data = data;
+  }
+
+  // Cast is safe because conditional field added only when required
+  return base as ApiResponse<T>;
 };
 
 /**
@@ -527,7 +536,14 @@ export const withCache = <T>(
     }
     
     const result = await fn(...args);
-    cache.set(key, result, ttl);
+    // Avoid passing `undefined` as TTL because `node-cache` expects
+    // a `string | number` explicitly. Use the overload without TTL
+    // when it is not provided.
+    if (ttl !== undefined) {
+      cache.set(key, result, ttl);
+    } else {
+      cache.set(key, result);
+    }
     return result;
   };
 };
@@ -757,12 +773,16 @@ export const deepMerge = <T extends Record<string, any>, U extends Record<string
     Object.keys(source).forEach((key) => {
       if (isObject(source[key])) {
         if (!(key in target)) {
-          Object.assign(output, { [key]: source[key] });
+          // Safe write through `any` to avoid TS2862 generic index error
+          (output as any)[key] = source[key];
         } else {
-          output[key] = deepMerge(target[key], source[key]);
+          (output as any)[key] = deepMerge(
+            (target as any)[key],
+            (source as any)[key],
+          );
         }
       } else {
-        Object.assign(output, { [key]: source[key] });
+        (output as any)[key] = source[key];
       }
     });
   }

@@ -131,7 +131,7 @@ passport.serializeUser((user: any, done) => {
 
 passport.deserializeUser(async (id: string, done) => {
   try {
-    const result = await pool.query('SELECT * FROM users WHERE id = $1', [id]);
+    const result = await pool.query('SELECT * FROM yeyzer.users WHERE id = $1', [id]);
     const user = result.rows[0];
     if (!user) {
       return done(null, false);
@@ -151,7 +151,7 @@ passport.use(
     },
     async (email, password, done) => {
       try {
-        const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+        const result = await pool.query('SELECT * FROM yeyzer.users WHERE email = $1', [email]);
         const user = result.rows[0];
         
         if (!user) {
@@ -164,7 +164,7 @@ passport.use(
         }
         
         // Update last login time
-        await pool.query('UPDATE users SET last_login_at = NOW() WHERE id = $1', [user.id]);
+        await pool.query('UPDATE yeyzer.users SET last_login_at = NOW() WHERE id = $1', [user.id]);
         
         return done(null, user);
       } catch (err) {
@@ -183,7 +183,7 @@ const jwtOptions = {
 passport.use(
   new JwtStrategy(jwtOptions, async (payload, done) => {
     try {
-      const result = await pool.query('SELECT * FROM users WHERE id = $1', [payload.userId]);
+      const result = await pool.query('SELECT * FROM yeyzer.users WHERE id = $1', [payload.userId]);
       const user = result.rows[0];
       
       if (!user) {
@@ -250,7 +250,7 @@ authRouter.post(
     const { email, password, firstName, lastName } = req.body;
     
     // Check if user already exists
-    const existingUser = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+    const existingUser = await pool.query('SELECT * FROM yeyzer.users WHERE email = $1', [email]);
     if (existingUser.rows.length > 0) {
       throw new AppError('Email already in use', StatusCodes.CONFLICT, 'EMAIL_IN_USE');
     }
@@ -261,7 +261,7 @@ authRouter.post(
     
     // Create user
     const result = await pool.query(
-      `INSERT INTO users (
+      `INSERT INTO yeyzer.users (
         email, password, first_name, last_name, is_active
       ) VALUES ($1, $2, $3, $4, $5) RETURNING id, email, first_name, last_name, created_at`,
       [email, hashedPassword, firstName, lastName, true]
@@ -342,7 +342,7 @@ authRouter.post(
         
         // Store session info
         await pool.query(
-          `INSERT INTO sessions (
+          `INSERT INTO yeyzer.sessions (
             id, user_id, ip_address, user_agent, expires_at, is_valid
           ) VALUES ($1, $2, $3, $4, $5, $6)`,
           [
@@ -403,7 +403,7 @@ authRouter.post(
       }
       
       // Get user
-      const result = await pool.query('SELECT * FROM users WHERE id = $1', [decoded.userId]);
+      const result = await pool.query('SELECT * FROM yeyzer.users WHERE id = $1', [decoded.userId]);
       const user = result.rows[0];
       
       if (!user) {
@@ -457,7 +457,7 @@ authRouter.post(
     const user = req.user as any;
     
     // Invalidate all sessions for this user
-    await pool.query('UPDATE sessions SET is_valid = false WHERE user_id = $1', [user.id]);
+    await pool.query('UPDATE yeyzer.sessions SET is_valid = false WHERE user_id = $1', [user.id]);
     
     logger.info({ userId: user.id }, 'User logged out');
     
@@ -501,7 +501,10 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   logger.error({ err, req }, 'Error occurred');
   
   if (err instanceof AppError) {
-    return res.status(err.statusCode).json(createErrorResponse(err, req.id));
+    res
+      .status(err.statusCode)
+      .json(createErrorResponse(err, String(req.id)));
+    return;
   }
   
   const appError = new AppError(
@@ -509,8 +512,10 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     StatusCodes.INTERNAL_SERVER_ERROR,
     'INTERNAL_SERVER_ERROR'
   );
-  
-  res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(createErrorResponse(appError, req.id));
+
+  res
+    .status(StatusCodes.INTERNAL_SERVER_ERROR)
+    .json(createErrorResponse(appError, String(req.id)));
 });
 
 // 404 handler
@@ -518,7 +523,7 @@ app.use((req: Request, res: Response) => {
   res.status(StatusCodes.NOT_FOUND).json(
     createErrorResponse(
       new AppError('Not found', StatusCodes.NOT_FOUND, 'NOT_FOUND'),
-      req.id
+      String(req.id)
     )
   );
 });
