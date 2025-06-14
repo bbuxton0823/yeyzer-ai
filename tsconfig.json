@@ -1,0 +1,68 @@
+{
+  "compilerOptions": {
+    /* Type Checking */
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+    "alwaysStrict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+
+    /* Modules */
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@yeyzer/types/*": ["shared/types/*"],
+      "@yeyzer/utils/*": ["shared/utils/*"],
+      "@yeyzer/auth/*": ["services/auth/src/*"],
+      "@yeyzer/profile/*": ["services/profile/src/*"],
+      "@yeyzer/scraper/*": ["services/scraper/src/*"],
+      "@yeyzer/match-engine/*": ["services/match-engine/src/*"],
+      "@yeyzer/conversation/*": ["services/conversation/src/*"],
+      "@yeyzer/venue/*": ["services/venue/src/*"],
+      "@yeyzer/voice/*": ["services/voice/src/*"],
+      "@yeyzer/safety/*": ["services/safety/src/*"],
+      "@yeyzer/gateway/*": ["gateway/src/*"]
+    },
+    "rootDir": ".",
+
+    /* Emit */
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "removeComments": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Language and Environment */
+    "target": "ES2022",
+    "lib": ["ES2022"],
+
+    /* Completeness */
+    "skipLibCheck": true
+  },
+  "references": [
+    { "path": "./shared/types" },
+    { "path": "./shared/utils" },
+    { "path": "./services/auth" },
+    { "path": "./services/profile" },
+    { "path": "./services/scraper" },
+    { "path": "./services/match-engine" },
+    { "path": "./services/conversation" },
+    { "path": "./services/venue" },
+    { "path": "./services/voice" },
+    { "path": "./services/safety" },
+    { "path": "./gateway" },
+    { "path": "./frontend" }
+  ],
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"]
+}

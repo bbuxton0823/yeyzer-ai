@@ -1,0 +1,33 @@
+{
+  "name": "@yeyzer/types",
+  "version": "0.1.0",
+  "description": "Shared TypeScript type definitions for Yeyzer AI Match-Assistant",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "dev": "tsc --watch",
+    "lint": "eslint 'src/**/*.{ts,tsx}' --quiet --fix",
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/jest": "^29.5.3",
+    "@types/node": "^18.17.1",
+    "@typescript-eslint/eslint-plugin": "^6.2.0",
+    "@typescript-eslint/parser": "^6.2.0",
+    "eslint": "^8.46.0",
+    "jest": "^29.6.2",
+    "rimraf": "^5.0.1",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "zod": "^3.21.4"
+  }
+}

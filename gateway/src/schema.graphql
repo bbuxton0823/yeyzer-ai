@@ -1,0 +1,786 @@
+# Yeyzer AI Match-Assistant - GraphQL Schema
+
+# ===== Custom Scalars =====
+scalar DateTime
+scalar UUID
+scalar JSON
+scalar Upload
+scalar Coordinates
+scalar Vector
+
+# ===== Enums =====
+enum Role {
+  USER
+  ADMIN
+}
+
+enum MatchType {
+  COMPLEMENT
+  MIRROR
+}
+
+enum MatchStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+  SCHEDULED
+  COMPLETED
+  CANCELLED
+}
+
+enum ExperienceLevelPreference {
+  ENTRY_LEVEL
+  MID_LEVEL
+  SENIOR
+  EXECUTIVE
+  ANY
+}
+
+enum MeetingPreference {
+  COFFEE
+  LUNCH
+  DINNER
+  DRINKS
+  VIRTUAL
+  ANY
+}
+
+enum MeetingFrequencyPreference {
+  ONE_TIME
+  WEEKLY
+  MONTHLY
+  QUARTERLY
+  OPEN
+}
+
+enum VenueType {
+  CAFE
+  RESTAURANT
+  BAR
+  COWORKING
+  PARK
+  OTHER
+}
+
+enum VenuePrice {
+  ONE
+  TWO
+  THREE
+  FOUR
+}
+
+enum VoiceCommandType {
+  WAKE
+  MATCH
+  CHAT
+  VENUE
+  SCHEDULE
+  HELP
+  CANCEL
+  UNKNOWN
+}
+
+enum SafetyReportReason {
+  INAPPROPRIATE_CONTENT
+  HARASSMENT
+  SPAM
+  FAKE_PROFILE
+  OTHER
+}
+
+enum SafetyReportStatus {
+  PENDING
+  INVESTIGATING
+  RESOLVED
+  DISMISSED
+}
+
+enum CheckInStatus {
+  PENDING
+  COMPLETED
+  MISSED
+}
+
+enum CheckInResponse {
+  SAFE
+  UNSAFE
+  NO_RESPONSE
+}
+
+# ===== User Types =====
+type User {
+  id: UUID!
+  email: String!
+  firstName: String!
+  lastName: String!
+  avatarUrl: String
+  role: Role!
+  isActive: Boolean!
+  isVerified: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  lastLoginAt: DateTime
+  profile: UserProfile
+  idealPersona: IdealPersona
+  linkedInData: LinkedInData
+  githubData: GitHubData
+  twitterData: TwitterData
+  crunchbaseData: CrunchbaseData
+  matches(status: MatchStatus, limit: Int, offset: Int): [Match!]!
+  chats: [Chat!]!
+}
+
+type UserProfile {
+  userId: UUID!
+  headline: String
+  bio: String
+  location: Location
+  profession: String
+  company: String
+  skills: [String!]!
+  interests: [String!]!
+  education: [Education!]!
+  experience: [Experience!]!
+  privacySettings: PrivacySettings!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Location {
+  city: String
+  state: String
+  country: String
+  coordinates: Coordinates
+}
+
+type Education {
+  institution: String!
+  degree: String
+  field: String
+  startYear: Int
+  endYear: Int
+  current: Boolean!
+}
+
+type Experience {
+  title: String!
+  company: String!
+  description: String
+  startDate: DateTime
+  endDate: DateTime
+  current: Boolean!
+}
+
+type PrivacySettings {
+  showLinkedIn: Boolean!
+  showGitHub: Boolean!
+  showTwitter: Boolean!
+  showCrunchbase: Boolean!
+}
+
+type IdealPersona {
+  userId: UUID!
+  matchType: MatchType!
+  professionalTraits: [String!]!
+  personalTraits: [String!]!
+  skillsDesired: [String!]!
+  industryPreferences: [String!]!
+  experienceLevelPreference: ExperienceLevelPreference!
+  meetingPreferences: [MeetingPreference!]!
+  meetingFrequencyPreference: MeetingFrequencyPreference!
+  description: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ===== Social Data Types =====
+type LinkedInData {
+  userId: UUID!
+  linkedInId: String!
+  profileUrl: String!
+  headline: String
+  summary: String
+  industry: String
+  skills: [String!]!
+  positions: [LinkedInPosition!]!
+  educations: [LinkedInEducation!]!
+  lastUpdated: DateTime!
+}
+
+type LinkedInPosition {
+  title: String!
+  company: String!
+  startDate: String
+  endDate: String
+  current: Boolean!
+  description: String
+}
+
+type LinkedInEducation {
+  school: String!
+  degree: String
+  fieldOfStudy: String
+  startDate: String
+  endDate: String
+}
+
+type GitHubData {
+  userId: UUID!
+  githubUsername: String!
+  profileUrl: String!
+  bio: String
+  company: String
+  location: String
+  blog: String
+  publicRepos: Int!
+  followers: Int!
+  following: Int!
+  topRepositories: [GitHubRepository!]!
+  topLanguages: [String!]!
+  contributionCount: Int!
+  lastUpdated: DateTime!
+}
+
+type GitHubRepository {
+  name: String!
+  description: String
+  url: String!
+  stars: Int!
+  forks: Int!
+  language: String
+}
+
+type TwitterData {
+  userId: UUID!
+  twitterUsername: String!
+  profileUrl: String!
+  displayName: String
+  bio: String
+  location: String
+  followersCount: Int!
+  followingCount: Int!
+  tweetCount: Int!
+  recentTweets: [Tweet!]!
+  lastUpdated: DateTime!
+}
+
+type Tweet {
+  id: String!
+  text: String!
+  createdAt: DateTime!
+  likeCount: Int!
+  retweetCount: Int!
+  replyCount: Int!
+}
+
+type CrunchbaseData {
+  userId: UUID!
+  crunchbaseProfileUrl: String
+  companyName: String
+  role: String
+  companyDetails: CompanyDetails
+  funding: [FundingRound!]!
+  lastUpdated: DateTime!
+}
+
+type CompanyDetails {
+  description: String
+  foundedDate: String
+  industry: [String!]!
+  companySize: String
+  headquarters: String
+  website: String
+}
+
+type FundingRound {
+  round: String!
+  amount: Float
+  date: DateTime!
+  investors: [String!]!
+}
+
+# ===== Authentication Types =====
+type AuthPayload {
+  token: String!
+  refreshToken: String
+  user: User!
+}
+
+# ===== Match Types =====
+type Match {
+  id: UUID!
+  userId: UUID!
+  user: User!
+  matchedUserId: UUID!
+  matchedUser: User!
+  score: MatchScore!
+  status: MatchStatus!
+  icebreaker: Icebreaker
+  scheduledVenue: Venue
+  scheduledTime: DateTime
+  userFeedback: Int
+  matchedUserFeedback: Int
+  chat: Chat
+  venueRecommendations: [VenueRecommendation!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type MatchScore {
+  overall: Float!
+  professionalFit: Float!
+  personalFit: Float!
+  skillsAlignment: Float!
+  industryAlignment: Float!
+  experienceCompatibility: Float!
+  details: JSON
+}
+
+# ===== Conversation Types =====
+type Icebreaker {
+  id: UUID!
+  matchId: UUID!
+  match: Match!
+  text: String!
+  generatedBy: String!
+  accepted: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Chat {
+  id: UUID!
+  matchId: UUID!
+  match: Match!
+  user1Id: UUID!
+  user1: User!
+  user2Id: UUID!
+  user2: User!
+  lastMessageAt: DateTime
+  isActive: Boolean!
+  messages(limit: Int, offset: Int): [Message!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Message {
+  id: UUID!
+  chatId: UUID!
+  chat: Chat!
+  senderId: UUID!
+  sender: User!
+  receiverId: UUID!
+  receiver: User!
+  content: String!
+  read: Boolean!
+  readAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ===== Venue Types =====
+type Venue {
+  id: UUID!
+  googlePlaceId: String!
+  name: String!
+  address: String!
+  latitude: Float!
+  longitude: Float!
+  phone: String
+  website: String
+  rating: Float
+  userRatingsCount: Int
+  priceLevel: VenuePrice
+  types: [String!]!
+  photos: [String!]!
+  openingHours: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type VenueRecommendation {
+  id: UUID!
+  matchId: UUID!
+  match: Match!
+  venueId: UUID!
+  venue: Venue!
+  reason: String
+  distanceFromMidpoint: Float
+  selected: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ===== Voice Types =====
+type VoiceSession {
+  id: UUID!
+  userId: UUID!
+  user: User!
+  startedAt: DateTime!
+  endedAt: DateTime
+  active: Boolean!
+  deviceInfo: DeviceInfo
+  commands: [VoiceCommand!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type DeviceInfo {
+  type: String
+  browser: String
+  os: String
+}
+
+type VoiceCommand {
+  id: UUID!
+  sessionId: UUID!
+  session: VoiceSession!
+  userId: UUID!
+  user: User!
+  audioUrl: String
+  transcription: String!
+  commandType: VoiceCommandType!
+  confidence: Float!
+  processedAt: DateTime!
+  metadata: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ===== Safety Types =====
+type SafetyReport {
+  id: UUID!
+  reporterId: UUID!
+  reporter: User!
+  reportedUserId: UUID!
+  reportedUser: User!
+  matchId: UUID
+  match: Match
+  messageId: UUID
+  message: Message
+  reason: SafetyReportReason!
+  details: String
+  status: SafetyReportStatus!
+  adminNotes: String
+  resolvedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type CheckIn {
+  id: UUID!
+  userId: UUID!
+  user: User!
+  matchId: UUID!
+  match: Match!
+  scheduledTime: DateTime!
+  checkInTime: DateTime
+  status: CheckInStatus!
+  response: CheckInResponse
+  notes: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ===== Pagination Types =====
+type PageInfo {
+  total: Int!
+  page: Int!
+  limit: Int!
+  pages: Int!
+  hasNext: Boolean!
+  hasPrev: Boolean!
+}
+
+type UserConnection {
+  nodes: [User!]!
+  pageInfo: PageInfo!
+}
+
+type MatchConnection {
+  nodes: [Match!]!
+  pageInfo: PageInfo!
+}
+
+type ChatConnection {
+  nodes: [Chat!]!
+  pageInfo: PageInfo!
+}
+
+type MessageConnection {
+  nodes: [Message!]!
+  pageInfo: PageInfo!
+}
+
+type VenueConnection {
+  nodes: [Venue!]!
+  pageInfo: PageInfo!
+}
+
+# ===== Input Types =====
+
+# User Inputs
+input RegisterInput {
+  email: String!
+  password: String!
+  firstName: String!
+  lastName: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input RefreshTokenInput {
+  refreshToken: String!
+}
+
+input UpdateUserProfileInput {
+  headline: String
+  bio: String
+  city: String
+  state: String
+  country: String
+  latitude: Float
+  longitude: Float
+  profession: String
+  company: String
+  skills: [String!]
+  interests: [String!]
+}
+
+input EducationInput {
+  institution: String!
+  degree: String
+  field: String
+  startYear: Int
+  endYear: Int
+  current: Boolean
+}
+
+input ExperienceInput {
+  title: String!
+  company: String!
+  description: String
+  startDate: DateTime
+  endDate: DateTime
+  current: Boolean
+}
+
+input PrivacySettingsInput {
+  showLinkedIn: Boolean
+  showGitHub: Boolean
+  showTwitter: Boolean
+  showCrunchbase: Boolean
+}
+
+input UpdateIdealPersonaInput {
+  matchType: MatchType
+  professionalTraits: [String!]
+  personalTraits: [String!]
+  skillsDesired: [String!]
+  industryPreferences: [String!]
+  experienceLevelPreference: ExperienceLevelPreference
+  meetingPreferences: [MeetingPreference!]
+  meetingFrequencyPreference: MeetingFrequencyPreference
+  description: String
+}
+
+# Match Inputs
+input UpdateMatchStatusInput {
+  matchId: UUID!
+  status: MatchStatus!
+}
+
+input ProvideMatchFeedbackInput {
+  matchId: UUID!
+  rating: Int!
+  comments: String
+}
+
+# Conversation Inputs
+input CreateIcebreakerInput {
+  matchId: UUID!
+  text: String!
+}
+
+input AcceptIcebreakerInput {
+  icebreakerId: UUID!
+}
+
+input SendMessageInput {
+  chatId: UUID!
+  content: String!
+}
+
+input MarkMessageReadInput {
+  messageId: UUID!
+}
+
+# Venue Inputs
+input ScheduleVenueInput {
+  matchId: UUID!
+  venueId: UUID!
+  scheduledTime: DateTime!
+}
+
+input SearchVenuesInput {
+  latitude: Float!
+  longitude: Float!
+  radius: Float
+  types: [String!]
+  priceMin: Int
+  priceMax: Int
+  keyword: String
+}
+
+# Voice Inputs
+input StartVoiceSessionInput {
+  deviceType: String
+  browser: String
+  os: String
+}
+
+input ProcessVoiceCommandInput {
+  sessionId: UUID!
+  audioData: Upload
+  transcription: String
+}
+
+# Safety Inputs
+input CreateSafetyReportInput {
+  reportedUserId: UUID!
+  matchId: UUID
+  messageId: UUID
+  reason: SafetyReportReason!
+  details: String
+}
+
+input RespondToCheckInInput {
+  checkInId: UUID!
+  response: CheckInResponse!
+  notes: String
+}
+
+# ===== Query Type =====
+type Query {
+  # User Queries
+  me: User
+  user(id: UUID!): User
+  users(
+    search: String
+    role: Role
+    isActive: Boolean
+    page: Int
+    limit: Int
+  ): UserConnection!
+  
+  # Match Queries
+  match(id: UUID!): Match
+  myMatches(
+    status: MatchStatus
+    page: Int
+    limit: Int
+  ): MatchConnection!
+  matchRecommendations(limit: Int): [Match!]!
+  
+  # Conversation Queries
+  chat(id: UUID!): Chat
+  myChats(
+    active: Boolean
+    page: Int
+    limit: Int
+  ): ChatConnection!
+  messages(
+    chatId: UUID!
+    page: Int
+    limit: Int
+  ): MessageConnection!
+  
+  # Venue Queries
+  venue(id: UUID!): Venue
+  searchVenues(input: SearchVenuesInput!): VenueConnection!
+  venueRecommendations(matchId: UUID!): [VenueRecommendation!]!
+  
+  # Voice Queries
+  voiceSession(id: UUID!): VoiceSession
+  activeVoiceSession: VoiceSession
+  
+  # Safety Queries
+  safetyReports(
+    status: SafetyReportStatus
+    page: Int
+    limit: Int
+  ): [SafetyReport!]!
+  pendingCheckIns: [CheckIn!]!
+}
+
+# ===== Mutation Type =====
+type Mutation {
+  # Auth Mutations
+  register(input: RegisterInput!): AuthPayload!
+  login(input: LoginInput!): AuthPayload!
+  refreshToken(input: RefreshTokenInput!): AuthPayload!
+  logout: Boolean!
+  
+  # User Profile Mutations
+  updateUserProfile(input: UpdateUserProfileInput!): UserProfile!
+  addEducation(input: EducationInput!): UserProfile!
+  updateEducation(id: Int!, input: EducationInput!): UserProfile!
+  removeEducation(id: Int!): UserProfile!
+  addExperience(input: ExperienceInput!): UserProfile!
+  updateExperience(id: Int!, input: ExperienceInput!): UserProfile!
+  removeExperience(id: Int!): UserProfile!
+  updatePrivacySettings(input: PrivacySettingsInput!): UserProfile!
+  
+  # Ideal Persona Mutations
+  updateIdealPersona(input: UpdateIdealPersonaInput!): IdealPersona!
+  
+  # Social Data Mutations
+  connectLinkedIn: Boolean!
+  disconnectLinkedIn: Boolean!
+  connectGitHub: Boolean!
+  disconnectGitHub: Boolean!
+  connectTwitter: Boolean!
+  disconnectTwitter: Boolean!
+  
+  # Match Mutations
+  updateMatchStatus(input: UpdateMatchStatusInput!): Match!
+  provideMatchFeedback(input: ProvideMatchFeedbackInput!): Match!
+  
+  # Conversation Mutations
+  createIcebreaker(input: CreateIcebreakerInput!): Icebreaker!
+  acceptIcebreaker(input: AcceptIcebreakerInput!): Icebreaker!
+  sendMessage(input: SendMessageInput!): Message!
+  markMessageRead(input: MarkMessageReadInput!): Message!
+  
+  # Venue Mutations
+  scheduleVenue(input: ScheduleVenueInput!): Match!
+  
+  # Voice Mutations
+  startVoiceSession(input: StartVoiceSessionInput!): VoiceSession!
+  endVoiceSession(sessionId: UUID!): VoiceSession!
+  processVoiceCommand(input: ProcessVoiceCommandInput!): VoiceCommand!
+  
+  # Safety Mutations
+  createSafetyReport(input: CreateSafetyReportInput!): SafetyReport!
+  respondToCheckIn(input: RespondToCheckInInput!): CheckIn!
+}
+
+# ===== Subscription Type =====
+type Subscription {
+  # Match Subscriptions
+  matchCreated: Match!
+  matchUpdated(matchId: UUID): Match!
+  
+  # Conversation Subscriptions
+  messageReceived(chatId: UUID): Message!
+  icebreakerCreated(matchId: UUID): Icebreaker!
+  
+  # Voice Subscriptions
+  voiceCommandProcessed(sessionId: UUID!): VoiceCommand!
+  
+  # Safety Subscriptions
+  checkInRequired: CheckIn!
+}
