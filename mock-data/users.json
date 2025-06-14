@@ -1,0 +1,62 @@
+[
+  {
+    "firstName": "Alex",
+    "lastName": "Wong",
+    "email": "alex.wong@techstartup.co",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Alex+Wong&background=0D8ABC&color=fff"
+  },
+  {
+    "firstName": "Priya",
+    "lastName": "Sharma",
+    "email": "priya.sharma@aiventures.com",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Priya+Sharma&background=7D3C98&color=fff"
+  },
+  {
+    "firstName": "Marcus",
+    "lastName": "Johnson",
+    "email": "marcus.johnson@sequoia.vc",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Marcus+Johnson&background=2E4053&color=fff"
+  },
+  {
+    "firstName": "Elena",
+    "lastName": "Rodriguez",
+    "email": "elena.rodriguez@biogen.io",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Elena+Rodriguez&background=229954&color=fff"
+  },
+  {
+    "firstName": "Jamal",
+    "lastName": "Washington",
+    "email": "jamal.washington@designlab.co",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Jamal+Washington&background=D35400&color=fff"
+  },
+  {
+    "firstName": "Sarah",
+    "lastName": "Kim",
+    "email": "sarah.kim@lawfirm.com",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Sarah+Kim&background=8E44AD&color=fff"
+  },
+  {
+    "firstName": "David",
+    "lastName": "Chen",
+    "email": "david.chen@cloudtech.io",
+    "avatarUrl": "https://ui-avatars.com/api/?name=David+Chen&background=2471A3&color=fff"
+  },
+  {
+    "firstName": "Zoe",
+    "lastName": "Garcia",
+    "email": "zoe.garcia@medtech.org",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Zoe+Garcia&background=117A65&color=fff"
+  },
+  {
+    "firstName": "Michael",
+    "lastName": "Okonkwo",
+    "email": "michael.okonkwo@fintech.co",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Michael+Okonkwo&background=A93226&color=fff"
+  },
+  {
+    "firstName": "Aisha",
+    "lastName": "Patel",
+    "email": "aisha.patel@creativestudio.com",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Aisha+Patel&background=D4AC0D&color=fff"
+  }
+]

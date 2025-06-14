@@ -229,11 +229,7 @@ db-migrate:
 # Seed database with test data
 db-seed:
 	@echo -e "$(COLOR_BLUE)Seeding database with test data...$(COLOR_RESET)"
-	@if [ -f scripts/seed-db.js ]; then \
-		NODE_ENV=$(NODE_ENV) DATABASE_URL=$(DB_URL) node scripts/seed-db.js; \
-	else \
-		echo "No seed script found"; \
-	fi
+	@cd scripts && npm run seed
 
 # ===== DEPLOYMENT COMMANDS =====
 

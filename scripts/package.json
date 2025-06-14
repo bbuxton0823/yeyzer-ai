@@ -1,0 +1,29 @@
+{
+  "name": "@yeyzer/scripts",
+  "version": "0.1.0",
+  "description": "Utility scripts for Yeyzer AI Match-Assistant",
+  "private": true,
+  "scripts": {
+    "seed": "ts-node seed-mock-data.ts",
+    "seed:prod": "NODE_ENV=production ts-node seed-mock-data.ts",
+    "generate-mock-data": "ts-node generate-mock-data.ts"
+  },
+  "dependencies": {
+    "@yeyzer/types": "0.1.0",
+    "@yeyzer/utils": "0.1.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
+    "faker": "^5.5.3",
+    "pg": "^8.11.1",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/faker": "^5.5.9",
+    "@types/node": "^18.17.1",
+    "@types/pg": "^8.10.2",
+    "@types/uuid": "^9.0.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  }
+}

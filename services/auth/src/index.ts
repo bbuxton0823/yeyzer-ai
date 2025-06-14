@@ -9,7 +9,6 @@ import RedisStore from 'connect-redis';
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt';
-import { Strategy as LinkedInStrategy } from 'passport-linkedin-oauth2';
 import Redis from 'ioredis';
 import { Pool } from 'pg';
 import morgan from 'morgan';
@@ -197,88 +196,6 @@ passport.use(
     }
   })
 );
-
-// LinkedIn strategy
-if (process.env.LINKEDIN_CLIENT_ID && process.env.LINKEDIN_CLIENT_SECRET) {
-  passport.use(
-    new LinkedInStrategy(
-      {
-        clientID: getEnv('LINKEDIN_CLIENT_ID'),
-        clientSecret: getEnv('LINKEDIN_CLIENT_SECRET'),
-        callbackURL: getEnv('LINKEDIN_CALLBACK_URL'),
-        scope: ['r_emailaddress', 'r_liteprofile'],
-        state: true,
-      },
-      async (accessToken, refreshToken, profile, done) => {
-        try {
-          // Check if user exists
-          const result = await pool.query('SELECT * FROM users WHERE linkedin_id = $1', [profile.id]);
-          let user = result.rows[0];
-          
-          if (!user) {
-            // Create new user
-            const newUserResult = await pool.query(
-              `INSERT INTO users (
-                email, first_name, last_name, linkedin_id, avatar_url, is_active, is_verified
-              ) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
-              [
-                profile.emails[0].value,
-                profile.name.givenName,
-                profile.name.familyName,
-                profile.id,
-                profile.photos[0]?.value,
-                true,
-                true,
-              ]
-            );
-            user = newUserResult.rows[0];
-            
-            // Store LinkedIn token
-            await pool.query(
-              `INSERT INTO oauth_tokens (
-                user_id, provider, access_token, refresh_token, expires_at
-              ) VALUES ($1, $2, $3, $4, $5)`,
-              [
-                user.id,
-                'linkedin',
-                accessToken,
-                refreshToken,
-                new Date(Date.now() + 60 * 60 * 1000), // 1 hour expiry
-              ]
-            );
-            
-            logger.info({ userId: user.id }, 'New user created via LinkedIn OAuth');
-          } else {
-            // Update existing user's LinkedIn token
-            await pool.query(
-              `UPDATE oauth_tokens SET 
-                access_token = $1, 
-                refresh_token = $2, 
-                expires_at = $3 
-              WHERE user_id = $4 AND provider = $5`,
-              [
-                accessToken,
-                refreshToken,
-                new Date(Date.now() + 60 * 60 * 1000), // 1 hour expiry
-                user.id,
-                'linkedin',
-              ]
-            );
-            
-            // Update last login time
-            await pool.query('UPDATE users SET last_login_at = NOW() WHERE id = $1', [user.id]);
-            
-            logger.info({ userId: user.id }, 'User logged in via LinkedIn OAuth');
-          }
-          
-          return done(null, user);
-        } catch (err) {
-          return done(err, false);
-        }
-      }
-    )
-  );
-}
 
 // Metrics middleware
 app.use(createMetricsMiddleware(metrics));
@@ -548,30 +465,8 @@ authRouter.post(
   })
 );
 
-// LinkedIn OAuth routes
-authRouter.get('/linkedin', passport.authenticate('linkedin'));
-
-authRouter.get(
-  '/linkedin/callback',
-  passport.authenticate('linkedin', { session: false, failureRedirect: '/login' }),
-  asyncHandler(async (req: Request, res: Response) => {
-    const user = req.user as any;
-    
-    // Generate JWT token
-    const payload = {
-      userId: user.id,
-      email: user.email,
-      role: user.role || 'USER',
-      iat: Math.floor(Date.now() / 1000),
-      exp: Math.floor(Date.now() / 1000) + getEnvNumber('JWT_EXPIRY_SECONDS', 86400), // 24 hours
-    };
-    
-    const token = await signJwt(payload, getEnv('JWT_SECRET'));
-    
-    // Redirect to frontend with token
-    res.redirect(`${getEnv('CORS_ORIGIN')}/auth/callback?token=${token}`);
-  })
-);
+// OAuth endpoints (e.g., LinkedIn) removed in simplified MVP.
+// Only email / password authentication is supported for now.
 
 // Verify token endpoint
 authRouter.get(

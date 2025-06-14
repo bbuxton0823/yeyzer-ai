@@ -1,0 +1,694 @@
+[
+  {
+    "email": "alex.wong@techstartup.co",
+    "linkedInId": "alexwong123",
+    "profileUrl": "https://www.linkedin.com/in/alexwong123/",
+    "headline": "Co-founder & CTO at TechStartup | Full Stack Engineer | Y Combinator Alum",
+    "summary": "Serial entrepreneur and full-stack developer with 8+ years of experience building scalable web and mobile applications. Co-founded two successful startups, with one exit. Passionate about solving complex problems with elegant technical solutions and building high-performing engineering teams.",
+    "industry": "Computer Software",
+    "skills": [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Node.js",
+      "AWS",
+      "Kubernetes",
+      "System Architecture",
+      "Team Leadership",
+      "Product Strategy",
+      "Startup Scaling"
+    ],
+    "positions": [
+      {
+        "title": "Co-founder & CTO",
+        "company": "TechStartup",
+        "startDate": "2021-03",
+        "endDate": null,
+        "current": true,
+        "description": "Leading a team of 12 engineers building a next-generation SaaS platform. Architected microservices infrastructure using Node.js, TypeScript, and Kubernetes on AWS. Scaled to 50,000+ users with 99.99% uptime."
+      },
+      {
+        "title": "Senior Software Engineer",
+        "company": "Stripe",
+        "startDate": "2018-06",
+        "endDate": "2021-02",
+        "current": false,
+        "description": "Developed core payment processing infrastructure handling $1B+ in annual transactions. Improved system reliability and reduced latency by 40%."
+      },
+      {
+        "title": "Software Engineer",
+        "company": "Airbnb",
+        "startDate": "2016-01",
+        "endDate": "2018-05",
+        "current": false,
+        "description": "Built and maintained key features for the Airbnb web and mobile platforms. Focused on frontend performance optimization and accessibility."
+      }
+    ],
+    "educations": [
+      {
+        "school": "Stanford University",
+        "degree": "M.S.",
+        "fieldOfStudy": "Computer Science",
+        "startDate": "2014",
+        "endDate": "2016"
+      },
+      {
+        "school": "University of California, Berkeley",
+        "degree": "B.S.",
+        "fieldOfStudy": "Computer Science & Engineering",
+        "startDate": "2010",
+        "endDate": "2014"
+      }
+    ],
+    "lastUpdated": "2025-06-01T14:32:10Z"
+  },
+  {
+    "email": "priya.sharma@aiventures.com",
+    "linkedInId": "priyasharma456",
+    "profileUrl": "https://www.linkedin.com/in/priyasharma456/",
+    "headline": "AI Research Scientist | Partner at AI Ventures | Former Google DeepMind",
+    "summary": "Machine learning researcher and investor specializing in generative AI and large language models. Published 15+ papers at top AI conferences (NeurIPS, ICML, ACL). Now leading AI Ventures' technical due diligence and helping portfolio companies implement cutting-edge AI solutions.",
+    "industry": "Artificial Intelligence",
+    "skills": [
+      "Machine Learning",
+      "Deep Learning",
+      "Natural Language Processing",
+      "PyTorch",
+      "TensorFlow",
+      "Large Language Models",
+      "Computer Vision",
+      "Research",
+      "Technical Due Diligence",
+      "AI Ethics"
+    ],
+    "positions": [
+      {
+        "title": "Partner & AI Research Lead",
+        "company": "AI Ventures",
+        "startDate": "2023-01",
+        "endDate": null,
+        "current": true,
+        "description": "Leading technical due diligence for AI investments. Advising portfolio companies on AI strategy and implementation. Managing a $50M fund focused on generative AI startups."
+      },
+      {
+        "title": "Research Scientist",
+        "company": "Google DeepMind",
+        "startDate": "2019-04",
+        "endDate": "2022-12",
+        "current": false,
+        "description": "Conducted foundational research on large language models and multimodal learning. Contributed to key papers and open-source projects in the NLP space."
+      },
+      {
+        "title": "ML Engineer",
+        "company": "OpenAI",
+        "startDate": "2017-09",
+        "endDate": "2019-03",
+        "current": false,
+        "description": "Worked on reinforcement learning algorithms and helped develop early versions of GPT models."
+      }
+    ],
+    "educations": [
+      {
+        "school": "Massachusetts Institute of Technology",
+        "degree": "Ph.D.",
+        "fieldOfStudy": "Computer Science, AI Focus",
+        "startDate": "2014",
+        "endDate": "2017"
+      },
+      {
+        "school": "Indian Institute of Technology, Delhi",
+        "degree": "B.Tech",
+        "fieldOfStudy": "Computer Science",
+        "startDate": "2010",
+        "endDate": "2014"
+      }
+    ],
+    "lastUpdated": "2025-05-28T09:15:22Z"
+  },
+  {
+    "email": "marcus.johnson@sequoia.vc",
+    "linkedInId": "marcusjohnson789",
+    "profileUrl": "https://www.linkedin.com/in/marcusjohnson789/",
+    "headline": "Partner at Sequoia Capital | Former Founder | Harvard MBA",
+    "summary": "Venture capitalist focused on early-stage B2B SaaS, fintech, and enterprise AI investments. Previously founded and exited a fintech startup acquired by Square. Passionate about partnering with founders who are reshaping industries through technology.",
+    "industry": "Venture Capital & Private Equity",
+    "skills": [
+      "Venture Capital",
+      "Due Diligence",
+      "Financial Modeling",
+      "Market Analysis",
+      "SaaS Metrics",
+      "Term Sheets",
+      "Board Management",
+      "Strategic Partnerships",
+      "Startup Advising",
+      "M&A"
+    ],
+    "positions": [
+      {
+        "title": "Partner",
+        "company": "Sequoia Capital",
+        "startDate": "2020-06",
+        "endDate": null,
+        "current": true,
+        "description": "Leading investments in early-stage enterprise software, fintech, and AI companies. Managing 12 portfolio companies with combined valuation of $4B+. Led 8 Series A rounds in the past 3 years."
+      },
+      {
+        "title": "Principal",
+        "company": "Andreessen Horowitz",
+        "startDate": "2017-08",
+        "endDate": "2020-05",
+        "current": false,
+        "description": "Sourced and evaluated investment opportunities in fintech and enterprise SaaS. Supported portfolio companies with go-to-market strategy and executive hiring."
+      },
+      {
+        "title": "Co-founder & CEO",
+        "company": "PayStack (Acquired by Square)",
+        "startDate": "2014-03",
+        "endDate": "2017-07",
+        "current": false,
+        "description": "Built a B2B payments platform processing $500M+ in annual transactions. Grew team to 45 employees before successful acquisition by Square."
+      }
+    ],
+    "educations": [
+      {
+        "school": "Harvard Business School",
+        "degree": "MBA",
+        "fieldOfStudy": "Business Administration",
+        "startDate": "2012",
+        "endDate": "2014"
+      },
+      {
+        "school": "University of Pennsylvania",
+        "degree": "B.S.",
+        "fieldOfStudy": "Economics and Computer Science",
+        "startDate": "2008",
+        "endDate": "2012"
+      }
+    ],
+    "lastUpdated": "2025-06-05T16:45:33Z"
+  },
+  {
+    "email": "elena.rodriguez@biogen.io",
+    "linkedInId": "elenarodriguez101",
+    "profileUrl": "https://www.linkedin.com/in/elenarodriguez101/",
+    "headline": "Chief Scientific Officer at Biogen.io | Computational Biology | Drug Discovery",
+    "summary": "Biotech executive with expertise in computational biology and AI-driven drug discovery. Led teams that have advanced 5 novel therapeutics to clinical trials. Passionate about leveraging cutting-edge technology to solve complex biological problems and develop life-saving treatments.",
+    "industry": "Biotechnology",
+    "skills": [
+      "Computational Biology",
+      "Drug Discovery",
+      "Genomics",
+      "Proteomics",
+      "Machine Learning in Healthcare",
+      "Clinical Trials",
+      "R&D Leadership",
+      "Bioinformatics",
+      "Regulatory Strategy",
+      "Scientific Publishing"
+    ],
+    "positions": [
+      {
+        "title": "Chief Scientific Officer",
+        "company": "Biogen.io",
+        "startDate": "2022-01",
+        "endDate": null,
+        "current": true,
+        "description": "Leading scientific strategy and R&D efforts for an AI-driven drug discovery platform. Managing a team of 35 scientists and engineers. Successfully identified 3 novel drug candidates currently in preclinical development."
+      },
+      {
+        "title": "VP of Research",
+        "company": "Genentech",
+        "startDate": "2018-04",
+        "endDate": "2021-12",
+        "current": false,
+        "description": "Directed computational biology and AI research initiatives. Led cross-functional teams developing novel therapeutic approaches for oncology and neurodegenerative diseases."
+      },
+      {
+        "title": "Senior Scientist",
+        "company": "Novartis Institutes for Biomedical Research",
+        "startDate": "2014-09",
+        "endDate": "2018-03",
+        "current": false,
+        "description": "Developed computational methods for target identification and validation. Published 12 papers in top scientific journals including Nature Biotechnology and Cell."
+      }
+    ],
+    "educations": [
+      {
+        "school": "Stanford University",
+        "degree": "Ph.D.",
+        "fieldOfStudy": "Computational Biology",
+        "startDate": "2009",
+        "endDate": "2014"
+      },
+      {
+        "school": "Universidad de Barcelona",
+        "degree": "M.S.",
+        "fieldOfStudy": "Molecular Biology",
+        "startDate": "2007",
+        "endDate": "2009"
+      },
+      {
+        "school": "Universidad Complutense de Madrid",
+        "degree": "B.S.",
+        "fieldOfStudy": "Biochemistry",
+        "startDate": "2003",
+        "endDate": "2007"
+      }
+    ],
+    "lastUpdated": "2025-05-30T11:20:45Z"
+  },
+  {
+    "email": "jamal.washington@designlab.co",
+    "linkedInId": "jamalwashington202",
+    "profileUrl": "https://www.linkedin.com/in/jamalwashington202/",
+    "headline": "Head of Design at DesignLab | Former Airbnb, Meta | Design Systems Expert",
+    "summary": "Design leader with 12+ years of experience creating intuitive, accessible, and beautiful digital products. Specializing in design systems, user research, and building high-performing design teams. Passionate about mentoring the next generation of designers and creating products that delight users.",
+    "industry": "Design",
+    "skills": [
+      "UX/UI Design",
+      "Design Systems",
+      "Product Design",
+      "User Research",
+      "Figma",
+      "Design Leadership",
+      "Accessibility",
+      "Design Thinking",
+      "Design Sprints",
+      "Creative Direction"
+    ],
+    "positions": [
+      {
+        "title": "Head of Design",
+        "company": "DesignLab",
+        "startDate": "2023-02",
+        "endDate": null,
+        "current": true,
+        "description": "Leading a team of 20+ designers creating next-generation design tools. Established company-wide design system used by 200+ product teams. Increased design efficiency by 40% through process improvements and tool automation."
+      },
+      {
+        "title": "Senior Design Manager",
+        "company": "Meta",
+        "startDate": "2020-05",
+        "endDate": "2023-01",
+        "current": false,
+        "description": "Led design for Facebook Marketplace, managing a team of 8 designers. Redesigned core user flows resulting in 25% increase in user engagement and 15% increase in transaction completion."
+      },
+      {
+        "title": "Senior Product Designer",
+        "company": "Airbnb",
+        "startDate": "2017-03",
+        "endDate": "2020-04",
+        "current": false,
+        "description": "Designed key features for Airbnb Experiences. Created and maintained component library used across Airbnb's product ecosystem."
+      },
+      {
+        "title": "UX Designer",
+        "company": "Google",
+        "startDate": "2014-08",
+        "endDate": "2017-02",
+        "current": false,
+        "description": "Designed for Google Maps and contributed to Material Design system. Focused on mobile experiences and location-based features."
+      }
+    ],
+    "educations": [
+      {
+        "school": "Rhode Island School of Design",
+        "degree": "MFA",
+        "fieldOfStudy": "Graphic Design",
+        "startDate": "2012",
+        "endDate": "2014"
+      },
+      {
+        "school": "Howard University",
+        "degree": "BFA",
+        "fieldOfStudy": "Visual Communications",
+        "startDate": "2008",
+        "endDate": "2012"
+      }
+    ],
+    "lastUpdated": "2025-06-10T08:17:55Z"
+  },
+  {
+    "email": "sarah.kim@lawfirm.com",
+    "linkedInId": "sarahkim303",
+    "profileUrl": "https://www.linkedin.com/in/sarahkim303/",
+    "headline": "Partner at Wilson Sonsini | Technology & IP Law | Former General Counsel at Dropbox",
+    "summary": "Technology lawyer with 15+ years of experience advising startups and tech giants on IP strategy, privacy law, and corporate governance. Specialized in helping tech companies navigate complex regulatory environments and scale globally. Former in-house counsel with deep expertise in SaaS, fintech, and AI legal frameworks.",
+    "industry": "Law Practice",
+    "skills": [
+      "Intellectual Property Law",
+      "Technology Transactions",
+      "Privacy Law",
+      "GDPR Compliance",
+      "SaaS Agreements",
+      "Venture Financing",
+      "M&A",
+      "Corporate Governance",
+      "Regulatory Compliance",
+      "Contract Negotiation"
+    ],
+    "positions": [
+      {
+        "title": "Partner, Technology Transactions",
+        "company": "Wilson Sonsini Goodrich & Rosati",
+        "startDate": "2021-09",
+        "endDate": null,
+        "current": true,
+        "description": "Advising technology companies on complex IP transactions, privacy compliance, and commercial agreements. Leading a team of 8 associates focused on emerging technology clients."
+      },
+      {
+        "title": "General Counsel",
+        "company": "Dropbox",
+        "startDate": "2017-06",
+        "endDate": "2021-08",
+        "current": false,
+        "description": "Led global legal team of 25 attorneys. Managed legal aspects of IPO process and international expansion to 15 new markets. Developed comprehensive privacy and data protection program."
+      },
+      {
+        "title": "Senior Counsel",
+        "company": "Google",
+        "startDate": "2013-03",
+        "endDate": "2017-05",
+        "current": false,
+        "description": "Handled complex technology transactions and licensing agreements. Supported Google Cloud and enterprise products legal needs."
+      },
+      {
+        "title": "Associate",
+        "company": "Cooley LLP",
+        "startDate": "2009-08",
+        "endDate": "2013-02",
+        "current": false,
+        "description": "Represented technology startups and venture capital firms in financing rounds, commercial transactions, and M&A."
+      }
+    ],
+    "educations": [
+      {
+        "school": "Harvard Law School",
+        "degree": "J.D.",
+        "fieldOfStudy": "Law",
+        "startDate": "2006",
+        "endDate": "2009"
+      },
+      {
+        "school": "Yale University",
+        "degree": "B.A.",
+        "fieldOfStudy": "Political Science",
+        "startDate": "2002",
+        "endDate": "2006"
+      }
+    ],
+    "lastUpdated": "2025-06-03T14:50:22Z"
+  },
+  {
+    "email": "david.chen@cloudtech.io",
+    "linkedInId": "davidchen404",
+    "profileUrl": "https://www.linkedin.com/in/davidchen404/",
+    "headline": "VP of Engineering at CloudTech | Cloud Architecture | Former AWS Principal Engineer",
+    "summary": "Cloud computing expert with deep expertise in distributed systems, serverless architecture, and infrastructure automation. Led engineering teams building enterprise-scale cloud platforms handling millions of requests per second. Passionate about building resilient, secure, and cost-effective cloud solutions.",
+    "industry": "Cloud Computing",
+    "skills": [
+      "Cloud Architecture",
+      "AWS",
+      "Kubernetes",
+      "Terraform",
+      "Microservices",
+      "Serverless Computing",
+      "DevOps",
+      "Site Reliability Engineering",
+      "Infrastructure as Code",
+      "Distributed Systems"
+    ],
+    "positions": [
+      {
+        "title": "VP of Engineering",
+        "company": "CloudTech.io",
+        "startDate": "2022-04",
+        "endDate": null,
+        "current": true,
+        "description": "Leading engineering organization of 60+ engineers building next-generation cloud management platform. Architected multi-cloud orchestration system supporting AWS, Azure, and GCP. Reduced customer cloud costs by average of 35% through intelligent resource optimization."
+      },
+      {
+        "title": "Principal Engineer",
+        "company": "Amazon Web Services",
+        "startDate": "2018-02",
+        "endDate": "2022-03",
+        "current": false,
+        "description": "Technical lead for AWS Lambda service. Designed and implemented core infrastructure handling trillions of function executions monthly. Authored 5 patents related to serverless computing."
+      },
+      {
+        "title": "Senior Software Engineer",
+        "company": "Microsoft Azure",
+        "startDate": "2015-06",
+        "endDate": "2018-01",
+        "current": false,
+        "description": "Developed Azure Kubernetes Service and container orchestration platform. Implemented auto-scaling and self-healing capabilities for enterprise workloads."
+      },
+      {
+        "title": "Software Engineer",
+        "company": "VMware",
+        "startDate": "2012-09",
+        "endDate": "2015-05",
+        "current": false,
+        "description": "Built virtualization and cloud management tools. Focused on storage optimization and VM migration technologies."
+      }
+    ],
+    "educations": [
+      {
+        "school": "Carnegie Mellon University",
+        "degree": "M.S.",
+        "fieldOfStudy": "Computer Science, Distributed Systems",
+        "startDate": "2010",
+        "endDate": "2012"
+      },
+      {
+        "school": "University of California, San Diego",
+        "degree": "B.S.",
+        "fieldOfStudy": "Computer Science",
+        "startDate": "2006",
+        "endDate": "2010"
+      }
+    ],
+    "lastUpdated": "2025-05-25T10:08:17Z"
+  },
+  {
+    "email": "zoe.garcia@medtech.org",
+    "linkedInId": "zoegarcia505",
+    "profileUrl": "https://www.linkedin.com/in/zoegarcia505/",
+    "headline": "Director of Product at MedTech.org | Digital Health Innovation | FDA Regulatory Expert",
+    "summary": "Healthcare technology leader with expertise in medical device software, digital therapeutics, and regulatory compliance. Led development and FDA clearance of 6 digital health products now used by millions of patients. Passionate about leveraging technology to improve patient outcomes and healthcare accessibility.",
+    "industry": "Medical Devices",
+    "skills": [
+      "Digital Health",
+      "Medical Device Development",
+      "FDA Regulatory Strategy",
+      "Clinical Trials",
+      "Quality Management Systems",
+      "HIPAA Compliance",
+      "Product Management",
+      "Healthcare Interoperability",
+      "Remote Patient Monitoring",
+      "Digital Therapeutics"
+    ],
+    "positions": [
+      {
+        "title": "Director of Product, Digital Health",
+        "company": "MedTech.org",
+        "startDate": "2021-07",
+        "endDate": null,
+        "current": true,
+        "description": "Leading product strategy and development for digital therapeutics platform used by 300+ healthcare providers. Successfully obtained FDA clearance for AI-powered diagnostic tool. Launched remote monitoring platform resulting in 22% reduction in hospital readmissions."
+      },
+      {
+        "title": "Senior Product Manager",
+        "company": "Philips Healthcare",
+        "startDate": "2018-03",
+        "endDate": "2021-06",
+        "current": false,
+        "description": "Led development of connected health devices and companion apps. Managed cross-functional teams across engineering, clinical, regulatory, and marketing. Launched 3 FDA-cleared products generating $40M in annual revenue."
+      },
+      {
+        "title": "Regulatory Affairs Manager",
+        "company": "Boston Scientific",
+        "startDate": "2015-09",
+        "endDate": "2018-02",
+        "current": false,
+        "description": "Developed regulatory strategies for medical device software and connected health solutions. Successfully navigated FDA and international regulatory submissions for Class II and Class III devices."
+      },
+      {
+        "title": "Clinical Research Associate",
+        "company": "Johnson & Johnson",
+        "startDate": "2013-05",
+        "endDate": "2015-08",
+        "current": false,
+        "description": "Coordinated clinical trials for innovative medical devices. Ensured protocol compliance and data integrity across multiple research sites."
+      }
+    ],
+    "educations": [
+      {
+        "school": "Johns Hopkins University",
+        "degree": "M.S.",
+        "fieldOfStudy": "Biomedical Engineering",
+        "startDate": "2011",
+        "endDate": "2013"
+      },
+      {
+        "school": "University of California, Los Angeles",
+        "degree": "B.S.",
+        "fieldOfStudy": "Bioengineering",
+        "startDate": "2007",
+        "endDate": "2011"
+      }
+    ],
+    "lastUpdated": "2025-06-07T13:25:40Z"
+  },
+  {
+    "email": "michael.okonkwo@fintech.co",
+    "linkedInId": "michaelokonkwo606",
+    "profileUrl": "https://www.linkedin.com/in/michaelokonkwo606/",
+    "headline": "CEO & Founder at FinTech.co | Revolutionizing Digital Banking | Former JP Morgan Executive",
+    "summary": "Fintech entrepreneur and financial services executive with 15+ years of experience in banking, payments, and blockchain technology. Founded FinTech.co to democratize access to financial services globally. Previously led digital transformation initiatives at JP Morgan and advised central banks on CBDC implementation.",
+    "industry": "Financial Technology",
+    "skills": [
+      "Fintech Strategy",
+      "Digital Banking",
+      "Payments Infrastructure",
+      "Blockchain",
+      "Cryptocurrency",
+      "Regulatory Compliance",
+      "Financial Inclusion",
+      "Risk Management",
+      "Open Banking",
+      "Strategic Partnerships"
+    ],
+    "positions": [
+      {
+        "title": "CEO & Founder",
+        "company": "FinTech.co",
+        "startDate": "2020-01",
+        "endDate": null,
+        "current": true,
+        "description": "Founded digital banking platform serving 2M+ customers across 12 countries. Raised $75M in venture funding. Developed proprietary AI-powered credit scoring system increasing financial inclusion for underbanked populations."
+      },
+      {
+        "title": "Managing Director, Digital Banking",
+        "company": "JP Morgan Chase",
+        "startDate": "2016-03",
+        "endDate": "2019-12",
+        "current": false,
+        "description": "Led digital transformation of consumer banking division. Managed team of 120 product managers, engineers, and designers. Launched mobile banking platform with 15M+ active users."
+      },
+      {
+        "title": "Vice President, Payments Strategy",
+        "company": "Visa",
+        "startDate": "2013-06",
+        "endDate": "2016-02",
+        "current": false,
+        "description": "Developed strategic roadmap for next-generation payment technologies. Led partnerships with fintech startups and technology companies. Launched Visa's first blockchain-based B2B payment solution."
+      },
+      {
+        "title": "Management Consultant",
+        "company": "McKinsey & Company",
+        "startDate": "2009-09",
+        "endDate": "2013-05",
+        "current": false,
+        "description": "Advised financial institutions on digital strategy, operational efficiency, and risk management. Specialized in retail banking and payments transformation."
+      }
+    ],
+    "educations": [
+      {
+        "school": "Harvard Business School",
+        "degree": "MBA",
+        "fieldOfStudy": "Finance & Entrepreneurship",
+        "startDate": "2007",
+        "endDate": "2009"
+      },
+      {
+        "school": "London School of Economics",
+        "degree": "M.Sc.",
+        "fieldOfStudy": "Economics",
+        "startDate": "2006",
+        "endDate": "2007"
+      },
+      {
+        "school": "University of Lagos",
+        "degree": "B.Sc.",
+        "fieldOfStudy": "Computer Science & Economics",
+        "startDate": "2002",
+        "endDate": "2006"
+      }
+    ],
+    "lastUpdated": "2025-06-02T09:30:15Z"
+  },
+  {
+    "email": "aisha.patel@creativestudio.com",
+    "linkedInId": "aishapatel707",
+    "profileUrl": "https://www.linkedin.com/in/aishapatel707/",
+    "headline": "Creative Director at CreativeStudio | Brand Strategist | Former Design Lead at Apple",
+    "summary": "Award-winning creative director with expertise in brand identity, digital experiences, and integrated marketing campaigns. Led creative teams for Fortune 500 companies and global brands across tech, fashion, and consumer products. Passionate about design thinking, inclusive design practices, and mentoring emerging creative talent.",
+    "industry": "Design",
+    "skills": [
+      "Brand Strategy",
+      "Creative Direction",
+      "Visual Design",
+      "Art Direction",
+      "Design Systems",
+      "Typography",
+      "Motion Design",
+      "User Experience",
+      "Team Leadership",
+      "Client Management"
+    ],
+    "positions": [
+      {
+        "title": "Creative Director",
+        "company": "CreativeStudio",
+        "startDate": "2022-05",
+        "endDate": null,
+        "current": true,
+        "description": "Leading creative direction for global brands including Nike, Spotify, and Samsung. Managing team of 25 designers, copywriters, and art directors. Won 3 Cannes Lions and 5 D&AD Pencils for innovative campaign work."
+      },
+      {
+        "title": "Design Lead",
+        "company": "Apple",
+        "startDate": "2019-02",
+        "endDate": "2022-04",
+        "current": false,
+        "description": "Led design team for Apple Services marketing. Created visual identity for Apple TV+ launch campaign. Developed design system used across digital marketing touchpoints."
+      },
+      {
+        "title": "Senior Art Director",
+        "company": "Wieden+Kennedy",
+        "startDate": "2016-08",
+        "endDate": "2019-01",
+        "current": false,
+        "description": "Created award-winning campaigns for Nike, Instagram, and Coca-Cola. Led creative concept development, pitch presentations, and production oversight."
+      },
+      {
+        "title": "Art Director",
+        "company": "BBDO",
+        "startDate": "2014-03",
+        "endDate": "2016-07",
+        "current": false,
+        "description": "Developed visual concepts and creative executions for global brands. Specialized in integrated campaigns across digital, print, and experiential channels."
+      }
+    ],
+    "educations": [
+      {
+        "school": "Parsons School of Design",
+        "degree": "M.F.A.",
+        "fieldOfStudy": "Design & Technology",
+        "startDate": "2012",
+        "endDate": "2014"
+      },
+      {
+        "school": "National Institute of Design, India",
+        "degree": "B.Des.",
+        "fieldOfStudy": "Visual Communication",
+        "startDate": "2008",
+        "endDate": "2012"
+      }
+    ],
+    "lastUpdated": "2025-06-09T15:40:12Z"
+  }
+]
