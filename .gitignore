@@ -1,0 +1,141 @@
+# Yeyzer AI Match-Assistant .gitignore
+
+# ===== Node.js =====
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.npm
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# ===== Build Outputs =====
+# TypeScript compiled output
+dist/
+build/
+out/
+*.js.map
+*.d.ts.map
+*.tsbuildinfo
+.webpack/
+
+# Service-specific build directories
+services/*/dist/
+services/*/build/
+gateway/dist/
+frontend/.next/
+frontend/out/
+
+# ===== Environment Files =====
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+!.env.example
+
+# ===== IDE Configs =====
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# IntelliJ/WebStorm
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea_modules/
+
+# ===== OS Files =====
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ===== Logs =====
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# ===== Test Coverage =====
+coverage/
+.nyc_output/
+junit.xml
+test-results/
+
+# ===== Docker =====
+.docker/data/
+docker-volumes/
+postgres-data/
+redis-data/
+qdrant-data/
+prometheus-data/
+grafana-data/
+
+# ===== Temporary Files =====
+.tmp/
+.temp/
+.cache/
+.eslintcache
+.stylelintcache
+.prettiercache
+*.swp
+*.swo
+
+# ===== Project Specific =====
+# Generated GraphQL types
+gateway/src/generated/
+frontend/src/generated/
+
+# Local certificates
+certs/
+*.pem
+*.key
+*.crt
+
+# Mock data (keep the templates, ignore generated)
+mock-data/generated/
+
+# Seed script outputs
+scripts/output/
+
+# Local development database dumps
+*.dump
+*.sql.gz
+
+# Kubernetes secrets
+infrastructure/kubernetes/secrets/
+
+# Helm charts dependencies
+infrastructure/kubernetes/helm/charts/
+infrastructure/kubernetes/helm/*.tgz
+
+# Local development overrides
+docker-compose.override.yml
