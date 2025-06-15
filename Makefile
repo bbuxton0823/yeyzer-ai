@@ -128,6 +128,11 @@ dev-profile:
 	@echo -e "$(COLOR_BLUE)Starting profile service in development mode...$(COLOR_RESET)"
 	npm run dev --workspace=@yeyzer/profile
 
+# Start match-engine service in development mode
+dev-match:
+	@echo -e "$(COLOR_BLUE)Starting match-engine service in development mode...$(COLOR_RESET)"
+	npm run dev --workspace=@yeyzer/match-engine
+
 # ===== TESTING COMMANDS =====
 
 # Run all tests
