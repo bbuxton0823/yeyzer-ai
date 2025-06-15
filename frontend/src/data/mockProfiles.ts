@@ -5,9 +5,9 @@ import mockUsers from '../../../mock-data/users.json';
 import mockLinkedInData from '../../../mock-data/linkedin.json';
 
 // Helper to generate random profile picture URL
-const getRandomProfilePicture = (gender: 'men' | 'women' = Math.random() > 0.5 ? 'men' : 'women') => {
-  const id = Math.floor(Math.random() * 100); // random ID for picture
-  return `https://randomuser.me/api/portraits/${gender}/${id}.jpg`;
+const getRandomProfilePicture = () => {
+  const id = Math.floor(Math.random() * 70) + 1; // Random ID between 1-70 for picture
+  return `https://i.pravatar.cc/150?img=${id}`;
 };
 
 // Helper to generate random skills
@@ -112,7 +112,8 @@ export const mockFrontendProfiles: MockProfile[] = mockUsers.map((user, index) =
   const userId = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`; // Generate a pseudo-unique ID for each mock user
   const existingLinkedIn = mockLinkedInData.find(li => li.email === user.email);
 
-  const profilePicture = user.avatarUrl || getRandomProfilePicture(index % 2 === 0 ? 'men' : 'women');
+  // Always generate a profile picture for each user
+  const profilePicture = getRandomProfilePicture();
 
   const skills = generateRandomSkills(Math.floor(Math.random() * 5) + 3);
   const interests = generateRandomInterests(Math.floor(Math.random() * 3) + 2);

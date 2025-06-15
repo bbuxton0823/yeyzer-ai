@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeyzer AI Match-Assistant - Frontend Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        .launch-btn {
+            display: inline-block;
+            background: #fff;
+            color: #667eea;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+        .launch-btn:hover {
+            transform: translateY(-2px);
+            background-color: #f0f0f0;
+        }
+        .instructions {
+            text-align: left;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding-top: 20px;
+        }
+        .instructions h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .instructions ol {
+            list-style-position: inside;
+            margin-bottom: 20px;
+        }
+        .instructions li {
+            margin-bottom: 10px;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+        .quick-links {
+            margin-top: 20px;
+        }
+        .quick-links a {
+            display: inline-block;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin: 5px;
+            transition: background-color 0.2s ease;
+        }
+        .quick-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+            .launch-btn {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+            .instructions h2 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Yeyzer AI Match-Assistant</h1>
+        <p>Revolutionizing professional networking with AI-powered in-person meetups.</p>
+        
+        <a href="http://localhost:3000" target="_blank" class="launch-btn">Launch Frontend App</a>
+
+        <div class="instructions">
+            <h2>How to Test the Frontend:</h2>
+            <ol>
+                <li>Ensure all backend services are running (Auth, Profile, Match, Conversation, Venue, Voice, Safety). You can start them using their respective `npm run dev` commands in separate terminals.</li>
+                <li>Verify the frontend is running on <a href="http://localhost:3000" style="color: #fff; text-decoration: underline;">http://localhost:3000</a>.</li>
+                <li>Interact with the Profile tab to define your persona and interests.</li>
+                <li>Check the Matches tab to see AI-generated matches based on your input.</li>
+                <li>Explore the Chat and Connect tabs for more features.</li>
+            </ol>
+            <p>If you encounter issues, check the console logs of each running service for errors.</p>
+        </div>
+
+        <div class="quick-links">
+            <h3>Quick Links:</h3>
+            <a href="http://localhost:3000" target="_blank">Home</a>
+            <a href="http://localhost:3000/profile" target="_blank">Profile Tab</a>
+            <a href="http://localhost:3000/matches" target="_blank">Matches Tab</a>
+            <a href="http://localhost:3000/chat" target="_blank">Chat Tab</a>
+            <a href="http://localhost:3000/connections" target="_blank">Connect Tab</a>
+            <a href="http://localhost:4003/graphql" target="_blank">Profile Service GraphQL Playground</a>
+            <a href="http://localhost:4002/health" target="_blank">Auth Service Health</a>
+            <a href="http://localhost:4004/health" target="_blank">Match Engine Health</a>
+            <a href="http://localhost:4005/health" target="_blank">Conversation Service Health</a>
+            <a href="http://localhost:4006/health" target="_blank">Venue Service Health</a>
+            <a href="http://localhost:4007/health" target="_blank">Voice Service Health</a>
+            <a href="http://localhost:4008/health" target="_blank">Safety Service Health</a>
+        </div>
+    </div>
+</body>
+</html>

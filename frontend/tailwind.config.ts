@@ -11,29 +11,40 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#667eea',
-          light: '#8e9dff',
-          dark: '#4d5edb',
+          DEFAULT: '#2C2C54',           // Main dark purple / blue
+          light: '#4E4E8A',
+          dark: '#202046',
         },
         accent: {
-          DEFAULT: '#764ba2',
-          light: '#9a7cd1',
-          dark: '#5d3a81',
+          DEFAULT: '#6A5ACD',           // Lavender accent
+          light: '#8E7FF1',
+          dark: '#5746A4',
+        },
+        highlight: {
+          DEFAULT: '#FF007F',            // Bright magenta CTA / highlight
+          light: '#FF4FA3',
+          dark: '#C50065',
         },
         success: {
           DEFAULT: '#28a745',
-          light: '#4ee47a',
-          dark: '#1e7e34',
+          light: '#d4edda', // Lighter shade for success backgrounds
+          dark: '#155724', // Darker shade for success text
         },
         error: {
           DEFAULT: '#dc3545',
           light: '#e4606d',
           dark: '#a71d2a',
         },
-        background: '#FFFFFF',
-        surface: '#F8F9FA',
-        'text-primary': '#333333',
-        'text-secondary': '#6C757D',
+        background: '#1A1A2E',         // Very dark background
+        surface: '#1F1F38',            // Card / surface colour
+        'text-primary': '#F0F0F0',     // Light text on dark bg
+        'text-secondary': '#A0A0A0',   // Muted light grey
+        chat: { // Accent colors for different chat users
+          bubble1: '#30345F', // Darker cyan‐ish bubble
+          bubble2: '#3F3955', // Dark lavender
+          bubble3: '#32434D', // Dark teal
+          bubble4: '#453A4A', // Muted plum
+        },
       },
       fontFamily: {
         sans: [
@@ -51,7 +62,7 @@ module.exports = {
         ],
       },
       backgroundImage: {
-        'yeyzer-gradient': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        'yeyzer-gradient': 'linear-gradient(135deg, #2C2C54 0%, #6A5ACD 100%)',
       },
       keyframes: {
         fadeIn: {
@@ -181,6 +192,19 @@ module.exports = {
         '.message.received': {
           background: theme('colors.background'),
           border: `1px solid ${theme('colors.surface')}`,
+        },
+        // Chat bubble styles for different users
+        '.chat-bubble-1': {
+          background: theme('colors.chat.bubble1'),
+        },
+        '.chat-bubble-2': {
+          background: theme('colors.chat.bubble2'),
+        },
+        '.chat-bubble-3': {
+          background: theme('colors.chat.bubble3'),
+        },
+        '.chat-bubble-4': {
+          background: theme('colors.chat.bubble4'),
         },
         // Empty state styles
         '.empty-state': {
