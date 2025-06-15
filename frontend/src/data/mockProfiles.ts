@@ -69,7 +69,7 @@ const generateMockTwitterData = (userId: string): TwitterData => ({
   followingCount: Math.floor(Math.random() * 2000),
   tweetCount: Math.floor(Math.random() * 5000),
   recentTweets: [
-    { id: crypto.randomUUID(), text: 'Just built something awesome!', createdAt: new Date().toISOString(), likeCount: 10, retweetCount: 2, replyCount: 1 },
+    { id: `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`, text: 'Just built something awesome!', createdAt: new Date().toISOString(), likeCount: 10, retweetCount: 2, replyCount: 1 },
   ],
   lastUpdated: new Date().toISOString(),
 });
@@ -109,7 +109,7 @@ export interface MockProfile {
 }
 
 export const mockFrontendProfiles: MockProfile[] = mockUsers.map((user, index) => {
-  const userId = crypto.randomUUID(); // Generate a new UUID for each mock user
+  const userId = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`; // Generate a pseudo-unique ID for each mock user
   const existingLinkedIn = mockLinkedInData.find(li => li.email === user.email);
 
   const profilePicture = user.avatarUrl || getRandomProfilePicture(index % 2 === 0 ? 'men' : 'women');

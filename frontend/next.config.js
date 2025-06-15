@@ -32,40 +32,40 @@ const nextConfig = {
     return [
       {
         source: '/api/auth/:path*',
-        destination: `${process.env.NEXT_PUBLIC_AUTH_SERVICE_URL}/api/auth/:path*`,
+        destination: 'http://localhost:4002/api/auth/:path*',
       },
       {
         source: '/api/profile/:path*',
-        destination: `${process.env.NEXT_PUBLIC_PROFILE_SERVICE_URL}/api/profile/:path*`,
+        destination: 'http://localhost:4003/api/profile/:path*',
       },
       {
         source: '/api/matches/:path*',
-        destination: `${process.env.NEXT_PUBLIC_MATCH_ENGINE_URL}/api/matches/:path*`,
+        destination: 'http://localhost:4004/api/matches/:path*',
       },
       {
         source: '/api/icebreakers/:path*',
-        destination: `${process.env.NEXT_PUBLIC_CONVERSATION_SERVICE_URL}/api/icebreakers/:path*`,
+        destination: 'http://localhost:4005/api/icebreakers/:path*',
       },
       {
         source: '/api/chats/:path*',
-        destination: `${process.env.NEXT_PUBLIC_CONVERSATION_SERVICE_URL}/api/chats/:path*`,
+        destination: 'http://localhost:4005/api/chats/:path*',
       },
       {
         source: '/api/venues/:path*',
-        destination: `${process.env.NEXT_PUBLIC_VENUE_SERVICE_URL}/api/venues/:path*`,
+        destination: 'http://localhost:4006/api/venues/:path*',
       },
       {
         source: '/api/voice/:path*',
-        destination: `${process.env.NEXT_PUBLIC_VOICE_SERVICE_URL}/api/voice/:path*`,
+        destination: 'http://localhost:4007/api/voice/:path*',
       },
       {
         source: '/api/safety/:path*',
-        destination: `${process.env.NEXT_PUBLIC_SAFETY_SERVICE_URL}/api/safety/:path*`,
+        destination: 'http://localhost:4008/api/safety/:path*',
       },
       // GraphQL endpoint for Profile Service
       {
         source: '/graphql',
-        destination: `${process.env.NEXT_PUBLIC_PROFILE_SERVICE_URL}/graphql`,
+        destination: 'http://localhost:4003/graphql',
       },
     ];
   },
