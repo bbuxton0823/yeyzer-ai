@@ -215,6 +215,8 @@ CREATE TABLE matches (
     score_experience_compatibility NUMERIC(4,3) NOT NULL CHECK (score_experience_compatibility >= 0 AND score_experience_compatibility <= 1),
     score_details JSONB,
     scheduled_time TIMESTAMP WITH TIME ZONE,
+    -- Reference to the venue selected for this match (nullable until a venue is chosen)
+    scheduled_venue_id UUID REFERENCES venues(id) ON DELETE SET NULL,
     user_feedback INTEGER CHECK (user_feedback >= 1 AND user_feedback <= 5),
     matched_user_feedback INTEGER CHECK (matched_user_feedback >= 1 AND matched_user_feedback <= 5),
     created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
