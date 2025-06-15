@@ -148,6 +148,11 @@ dev-safety:
 	@echo -e "$(COLOR_BLUE)Starting safety service in development mode...$(COLOR_RESET)"
 	npm run dev --workspace=@yeyzer/safety
 
+# Start voice service in development mode
+dev-voice:
+	@echo -e "$(COLOR_BLUE)Starting voice service in development mode...$(COLOR_RESET)"
+	npm run dev --workspace=@yeyzer/voice
+
 # ===== TESTING COMMANDS =====
 
 # Run all tests
