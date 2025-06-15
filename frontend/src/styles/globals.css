@@ -107,6 +107,39 @@ textarea.form-control {
   min-height: 100px;
 }
 
+/* Ensure inputs and textareas are readable on light background */
+input,
+textarea,
+.form-control {
+  background-color: #FFFFFF; /* white background for readability */
+  color: #000000;            /* black text for contrast */
+}
+
+/* ------------------------------------------------------------
+   High-contrast overrides (ensure no Tailwind utility leaks in)
+   ------------------------------------------------------------ */
+input.form-control,
+textarea.form-control,
+select.form-control,
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='number'],
+input[type='search'],
+input[type='tel'],
+input[type='url'],
+textarea {
+  background-color: #ffffff !important; /* force white bg */
+  color: #000000 !important;            /* force black text */
+}
+
+/* Improve placeholder visibility (slightly darker grey) */
+input::placeholder,
+textarea::placeholder {
+  color: #595959 !important;
+  opacity: 1; /* override default lower opacity */
+}
+
 /* Accessibility */
 @media (prefers-reduced-motion) {
   .fade-in {

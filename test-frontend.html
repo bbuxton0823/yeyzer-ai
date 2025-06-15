@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yeyzer AI Match-Assistant - Frontend Test</title>
+    <title>Yeyzer AI - Frontend Test Page</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2C2C54 0%, #6A5ACD 100%); /* Yeyzer primary gradient */
             min-height: 100vh;
-            color: #fff;
+            color: #F0F0F0; /* text-primary */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -17,126 +17,235 @@
             padding: 20px;
             text-align: center;
         }
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
+        .card {
+            background: #1F1F38; /* surface */
+            border-radius: 12px;
             padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             max-width: 500px;
             width: 100%;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
         }
         h1 {
             font-size: 2.5em;
-            margin-bottom: 10px;
             font-weight: 700;
+            margin-bottom: 10px;
+            color: #FF007F; /* highlight */
         }
         p {
             font-size: 1.1em;
             margin-bottom: 20px;
-            opacity: 0.9;
+            color: #A0A0A0; /* text-secondary */
         }
-        .launch-btn {
-            display: inline-block;
-            background: #fff;
-            color: #667eea;
+        .btn {
+            background: linear-gradient(135deg, #2C2C54 0%, #6A5ACD 100%);
+            color: white;
+            border: none;
             padding: 15px 30px;
             border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             text-decoration: none;
-            font-size: 1.2em;
-            font-weight: 600;
-            transition: transform 0.2s ease, background-color 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            margin-bottom: 30px;
-        }
-        .launch-btn:hover {
-            transform: translateY(-2px);
-            background-color: #f0f0f0;
-        }
-        .instructions {
-            text-align: left;
-            margin-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
-            padding-top: 20px;
-        }
-        .instructions h2 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        .instructions ol {
-            list-style-position: inside;
-            margin-bottom: 20px;
-        }
-        .instructions li {
-            margin-bottom: 10px;
-            font-size: 0.95em;
-            line-height: 1.4;
-        }
-        .quick-links {
-            margin-top: 20px;
-        }
-        .quick-links a {
             display: inline-block;
-            color: #fff;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 15px;
-            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #F0F0F0;
+        }
+        .health-links a {
+            display: block;
+            color: #6A5ACD; /* accent */
+            margin-bottom: 5px;
             text-decoration: none;
-            font-size: 0.9em;
-            margin: 5px;
-            transition: background-color 0.2s ease;
         }
-        .quick-links a:hover {
-            background: rgba(255, 255, 255, 0.3);
+        .health-links a:hover {
+            text-decoration: underline;
         }
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2em;
-            }
-            .launch-btn {
-                padding: 12px 25px;
-                font-size: 1.1em;
-            }
-            .instructions h2 {
-                font-size: 1.3em;
-            }
+        .connection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .connection-btn {
+            padding: 15px;
+            background: #1A1A2E; /* background */
+            border: 2px solid #2B2B45; /* surface border */
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            color: #F0F0F0;
+        }
+        .connection-btn:hover {
+            border-color: #6A5ACD; /* accent */
+            background: #202046; /* primary-dark */
+        }
+        .connection-btn.connected {
+            border-color: #28a745; /* success */
+            background: #d4edda; /* success-light */
+            color: #155724; /* success-dark */
+        }
+        .connection-icon {
+            font-size: 2em;
+            margin-bottom: 8px;
+        }
+        .connection-label {
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        #connectionStatus {
+            margin-top: 20px;
+            padding: 10px;
+            background: #d4edda; /* success-light */
+            color: #155724; /* success-dark */
+            border-radius: 8px;
+            display: none;
+        }
+        .error-section {
+            background: #F8D7DA; /* error-light */
+            color: #721C24; /* error-dark */
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .error-section h3 {
+            color: #721C24;
+            margin-bottom: 10px;
+        }
+        .error-section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        .error-section li {
+            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Yeyzer AI Match-Assistant</h1>
-        <p>Revolutionizing professional networking with AI-powered in-person meetups.</p>
-        
-        <a href="http://localhost:3000" target="_blank" class="launch-btn">Launch Frontend App</a>
+    <div class="card">
+        <h1>Yeyzer AI</h1>
+        <p>Welcome to the Yeyzer AI Match-Assistant Frontend Test Page!</p>
+        <a href="http://localhost:3000" target="_blank" class="btn">Launch Frontend App</a>
+    </div>
 
-        <div class="instructions">
-            <h2>How to Test the Frontend:</h2>
-            <ol>
-                <li>Ensure all backend services are running (Auth, Profile, Match, Conversation, Venue, Voice, Safety). You can start them using their respective `npm run dev` commands in separate terminals.</li>
-                <li>Verify the frontend is running on <a href="http://localhost:3000" style="color: #fff; text-decoration: underline;">http://localhost:3000</a>.</li>
-                <li>Interact with the Profile tab to define your persona and interests.</li>
-                <li>Check the Matches tab to see AI-generated matches based on your input.</li>
-                <li>Explore the Chat and Connect tabs for more features.</li>
-            </ol>
-            <p>If you encounter issues, check the console logs of each running service for errors.</p>
+    <div class="card">
+        <h2 class="section-title">Connection Functionality Test</h2>
+        <p>Click the buttons below to simulate connecting social profiles. Check the browser console for logs.</p>
+        <div class="connection-grid">
+            <button class="connection-btn" onclick="connectProfile('linkedin')">
+                <div class="connection-icon">💼</div>
+                <div class="connection-label">LinkedIn</div>
+            </button>
+            <button class="connection-btn" onclick="connectProfile('github')">
+                <div class="connection-icon">💻</div>
+                <div class="connection-label">GitHub</div>
+            </button>
+            <button class="connection-btn" onclick="connectProfile('twitter')">
+                <div class="connection-icon">🐦</div>
+                <div class="connection-label">Twitter</div>
+            </button>
+            <button class="connection-btn" onclick="connectProfile('instagram')">
+                <div class="connection-icon">📸</div>
+                <div class="connection-label">Instagram</div>
+            </button>
         </div>
+        <div id="connectionStatus"></div>
+    </div>
 
-        <div class="quick-links">
-            <h3>Quick Links:</h3>
-            <a href="http://localhost:3000" target="_blank">Home</a>
-            <a href="http://localhost:3000/profile" target="_blank">Profile Tab</a>
-            <a href="http://localhost:3000/matches" target="_blank">Matches Tab</a>
-            <a href="http://localhost:3000/chat" target="_blank">Chat Tab</a>
-            <a href="http://localhost:3000/connections" target="_blank">Connect Tab</a>
-            <a href="http://localhost:4003/graphql" target="_blank">Profile Service GraphQL Playground</a>
-            <a href="http://localhost:4002/health" target="_blank">Auth Service Health</a>
-            <a href="http://localhost:4004/health" target="_blank">Match Engine Health</a>
-            <a href="http://localhost:4005/health" target="_blank">Conversation Service Health</a>
-            <a href="http://localhost:4006/health" target="_blank">Venue Service Health</a>
-            <a href="http://localhost:4007/health" target="_blank">Voice Service Health</a>
-            <a href="http://localhost:4008/health" target="_blank">Safety Service Health</a>
+    <div class="card">
+        <h2 class="section-title">Backend Service Health Checks</h2>
+        <p>Ensure all backend services are running before testing full functionality.</p>
+        <div class="health-links">
+            <a href="http://localhost:4002/health" target="_blank">Auth Service Health (4002)</a>
+            <a href="http://localhost:4003/health" target="_blank">Profile Service Health (4003)</a>
+            <a href="http://localhost:4004/health" target="_blank">Match Engine Health (4004)</a>
+            <a href="http://localhost:4005/health" target="_blank">Conversation Service Health (4005)</a>
+            <a href="http://localhost:4006/health" target="_blank">Venue Service Health (4006)</a>
+            <a href="http://localhost:4007/health" target="_blank">Voice Service Health (4007)</a>
+            <a href="http://localhost:4008/health" target="_blank">Safety Service Health (4008)</a>
         </div>
     </div>
+
+    <div class="card error-section">
+        <h3 class="section-title">Common Frontend Errors to Check</h3>
+        <p>When testing the main app (http://localhost:3000), open your browser's developer console (F12 or Right-click -> Inspect -> Console tab) and look for these common errors:</p>
+        <ul>
+            <li><b>Red Error Messages:</b> Any red text indicates a JavaScript runtime error. Copy the full message and stack trace.</li>
+            <li><b>404 Not Found:</b> If you see 404 errors for images or API calls, check the URLs and ensure the backend services are running.</li>
+            <li><b>CORS Errors:</b> "Cross-Origin Request Blocked" or similar messages mean the frontend isn't allowed to talk to the backend.</li>
+            <li><b>Hydration Errors:</b> "Text content did not match" or "Prop `className` did not match" usually indicate server-side rendering (SSR) issues.</li>
+            <li><b>Image Loading Errors:</b> "Invalid src prop" for `next/image` means the image domain is not configured in `next.config.js`.</li>
+            <li><b>Uncaught (in promise) errors:</b> Often related to failed API calls or unhandled asynchronous operations.</li>
+        </ul>
+        <p>If you encounter any of these, please copy the full error message and share it. This helps in debugging!</p>
+    </div>
+
+    <script>
+        let connectedProfiles = [];
+
+        function connectProfile(platform) {
+            console.log(`Attempting to connect to ${platform}...`);
+            const btn = event.target.closest('.connection-btn');
+            const statusElement = document.getElementById('connectionStatus');
+
+            if (connectedProfiles.includes(platform)) {
+                console.log(`${platform} is already connected.`);
+                statusElement.style.display = 'block';
+                statusElement.textContent = `${platform.charAt(0).toUpperCase() + platform.slice(1)} is already connected.`;
+                statusElement.style.backgroundColor = '#FFF3CD'; /* warning-light */
+                statusElement.style.color = '#856404'; /* warning-dark */
+                setTimeout(() => { statusElement.style.display = 'none'; }, 3000);
+                return;
+            }
+
+            // Simulate connection process
+            // In a real scenario, this would involve an API call and OAuth flow
+            setTimeout(() => {
+                const success = Math.random() > 0.1; // 90% chance of success for demo
+
+                if (success) {
+                    connectedProfiles.push(platform);
+                    btn.classList.add('connected');
+                    btn.innerHTML = `
+                        <div class="connection-icon">✓</div>
+                        <div class="connection-label">${platform.charAt(0).toUpperCase() + platform.slice(1)}</div>
+                    `;
+                    statusElement.style.display = 'block';
+                    statusElement.textContent = `${platform.charAt(0).toUpperCase() + platform.slice(1)} connected successfully!`;
+                    statusElement.style.backgroundColor = '#d4edda'; /* success-light */
+                    statusElement.style.color = '#155724'; /* success-dark */
+                    console.log(`${platform} connected successfully! Current connected profiles:`, connectedProfiles);
+                } else {
+                    statusElement.style.display = 'block';
+                    statusElement.textContent = `Failed to connect to ${platform}. Please try again.`;
+                    statusElement.style.backgroundColor = '#F8D7DA'; /* error-light */
+                    statusElement.style.color = '#721C24'; /* error-dark */
+                    console.error(`Failed to connect to ${platform}.`);
+                }
+                setTimeout(() => { statusElement.style.display = 'none'; }, 3000);
+            }, 500); // Simulate network delay
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Yeyzer AI Frontend Test Page Loaded.');
+            console.log('Initial connected profiles:', connectedProfiles);
+        });
+    </script>
 </body>
 </html>
