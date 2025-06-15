@@ -121,6 +121,13 @@ dev-%:
 	@echo -e "$(COLOR_BLUE)Starting $* service in development mode...$(COLOR_RESET)"
 	npm run dev --workspace=@yeyzer/$*
 
+# ----- NEW PROFILE SERVICE TARGET -----
+
+# Start profile service in development mode
+dev-profile:
+	@echo -e "$(COLOR_BLUE)Starting profile service in development mode...$(COLOR_RESET)"
+	npm run dev --workspace=@yeyzer/profile
+
 # ===== TESTING COMMANDS =====
 
 # Run all tests
