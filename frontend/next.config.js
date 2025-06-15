@@ -7,13 +7,20 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'ui-avatars.com',
         port: '',
-        pathname: '/api/**',
+        pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'randomuser.me',
         port: '',
         pathname: '/api/portraits/**',
+      },
+      // Allow pravatar images for mock profile pictures
+      {
+        protocol: 'https',
+        hostname: 'i.pravatar.cc',
+        port: '',
+        pathname: '/**',
       },
     ],
   },

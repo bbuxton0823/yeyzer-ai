@@ -40,6 +40,9 @@ const HOST = getEnv('HOST', '0.0.0.0');
 // Create HTTP server
 const httpServer = http.createServer(app);
 
+// Initialize WebSocket server
+const wss = new WebSocketServer({ server: httpServer, path: '/ws/voice' });
+
 // Database connection
 const pool = new Pool({
   connectionString: getEnv('DATABASE_URL'),
@@ -156,8 +159,7 @@ async function startServer() {
       res.end(await metrics.register.metrics());
     });
 
-    // -------------------- REST API Endpoints --------------------
-
+    // -------------------- REST API Endpoints --------------------\n
     // POST /api/voice/sessions/start - Start a voice session
     app.post('/api/voice/sessions/start', asyncHandler(async (req: Request, res: Response) => {
       const { userId, deviceType, browser, os } = req.body;
@@ -227,23 +229,24 @@ async function startServer() {
       }
 
       // Mock command type detection
-      let commandType: VoiceCommandTypeEnum = VoiceCommandTypeEnum.UNKNOWN;
+      let commandType: (typeof VoiceCommandTypeEnum.enum)[keyof typeof VoiceCommandTypeEnum.enum] =
+        VoiceCommandTypeEnum.enum.UNKNOWN;
       const lowerTranscription = transcription.toLowerCase();
 
       if (lowerTranscription.includes('wake') || lowerTranscription.includes('yeyzer')) {
-        commandType = VoiceCommandTypeEnum.WAKE;
+        commandType = VoiceCommandTypeEnum.enum.WAKE;
       } else if (lowerTranscription.includes('match') || lowerTranscription.includes('find me someone')) {
-        commandType = VoiceCommandTypeEnum.MATCH;
+        commandType = VoiceCommandTypeEnum.enum.MATCH;
       } else if (lowerTranscription.includes('chat') || lowerTranscription.includes('message')) {
-        commandType = VoiceCommandTypeEnum.CHAT;
+        commandType = VoiceCommandTypeEnum.enum.CHAT;
       } else if (lowerTranscription.includes('venue') || lowerTranscription.includes('meetup')) {
-        commandType = VoiceCommandTypeEnum.VENUE;
+        commandType = VoiceCommandTypeEnum.enum.VENUE;
       } else if (lowerTranscription.includes('schedule')) {
-        commandType = VoiceCommandTypeEnum.SCHEDULE;
+        commandType = VoiceCommandTypeEnum.enum.SCHEDULE;
       } else if (lowerTranscription.includes('help')) {
-        commandType = VoiceCommandTypeEnum.HELP;
+        commandType = VoiceCommandTypeEnum.enum.HELP;
       } else if (lowerTranscription.includes('cancel')) {
-        commandType = VoiceCommandTypeEnum.CANCEL;
+        commandType = VoiceCommandTypeEnum.enum.CANCEL;
       }
 
       const commandId = uuidv4();
@@ -259,11 +262,8 @@ async function startServer() {
       );
     }));
 
-    // -------------------- WebSocket Server --------------------
-
-    // Initialize WebSocket server
-    const wss = new WebSocketServer({ server: httpServer, path: '/ws/voice' });
-
+    // -------------------- WebSocket Server --------------------\n
+    // Handle WebSocket connections
     wss.on('connection', (ws: WebSocket) => {
       logger.info('New WebSocket connection for voice streaming');
 
@@ -287,11 +287,12 @@ async function startServer() {
         const sessionId = 'mock-session-id'; // In a real app, session ID would be passed or derived
         const userId = 'mock-user-id'; // In a real app, user ID would be authenticated
 
-        let commandType: VoiceCommandTypeEnum = VoiceCommandTypeEnum.UNKNOWN;
+        let commandType: (typeof VoiceCommandTypeEnum.enum)[keyof typeof VoiceCommandTypeEnum.enum] =
+          VoiceCommandTypeEnum.enum.UNKNOWN;
         if (transcription.toLowerCase().includes('hello')) {
-          commandType = VoiceCommandTypeEnum.WAKE;
+          commandType = VoiceCommandTypeEnum.enum.WAKE;
         } else if (transcription.toLowerCase().includes('match')) {
-          commandType = VoiceCommandTypeEnum.MATCH;
+          commandType = VoiceCommandTypeEnum.enum.MATCH;
         }
 
         const commandId = uuidv4();
