@@ -138,6 +138,11 @@ dev-conversation:
 	@echo -e "$(COLOR_BLUE)Starting conversation service in development mode...$(COLOR_RESET)"
 	npm run dev --workspace=@yeyzer/conversation
 
+# Start frontend in development mode
+dev-frontend:
+	@echo -e "$(COLOR_BLUE)Starting frontend in development mode...$(COLOR_RESET)"
+	npm run dev --workspace=@yeyzer/frontend
+
 # ===== TESTING COMMANDS =====
 
 # Run all tests
