@@ -133,6 +133,11 @@ dev-match:
 	@echo -e "$(COLOR_BLUE)Starting match-engine service in development mode...$(COLOR_RESET)"
 	npm run dev --workspace=@yeyzer/match-engine
 
+# Start conversation service in development mode
+dev-conversation:
+	@echo -e "$(COLOR_BLUE)Starting conversation service in development mode...$(COLOR_RESET)"
+	npm run dev --workspace=@yeyzer/conversation
+
 # ===== TESTING COMMANDS =====
 
 # Run all tests
