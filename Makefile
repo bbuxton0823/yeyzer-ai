@@ -143,6 +143,11 @@ dev-frontend:
 	@echo -e "$(COLOR_BLUE)Starting frontend in development mode...$(COLOR_RESET)"
 	npm run dev --workspace=@yeyzer/frontend
 
+# Start safety service in development mode
+dev-safety:
+	@echo -e "$(COLOR_BLUE)Starting safety service in development mode...$(COLOR_RESET)"
+	npm run dev --workspace=@yeyzer/safety
+
 # ===== TESTING COMMANDS =====
 
 # Run all tests
